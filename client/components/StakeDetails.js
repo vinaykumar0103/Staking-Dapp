@@ -12,7 +12,7 @@ function StakeDetails() {
   const [stakedBalance, setStakedBalance] = useState('0');
   const [earnedBalance, setEarnedBalance] = useState('0');
   const [withdrawBalance, setWithdrawBalance] = useState('0');
-  const [claimReward, setClaimReward] = useState( '0' )
+  // const [claimReward, setClaimReward] = useState( '0' )
   
 
 
@@ -57,15 +57,15 @@ function StakeDetails() {
   });
 
   
-  const { runContractFunction: getClaimReward } = useWeb3Contract({
-    abi: StakingAbi.abi,
-    contractAddress: stakingAddress,
-    functionName: 'claimReward',
-    params: {
-      account
-    }
+  // const { runContractFunction: getClaimReward } = useWeb3Contract({
+  //   abi: StakingAbi.abi,
+  //   contractAddress: stakingAddress,
+  //   functionName: 'claimReward',
+  //   params: {
+  //     account
+  //   }
     
-  });
+  // });
 
 
  
@@ -97,10 +97,10 @@ function StakeDetails() {
       const formattedWithdrawBalanceRounded = formattedWithdrawBalance.toFixed(2);
       setWithdrawBalance(formattedWithdrawBalanceRounded);
 
-      const claimReward = (await getClaimReward({ onError: (error) => console.log(error) })).toString();
-      const formattedClaimReward = parseFloat(claimReward) / 1e18;
-      const formattedClaimRewardRounded = formattedClaimReward.toFixed(2);
-      setClaimReward(formattedClaimRewardRounded);
+      // const claimReward = (await getClaimReward({ onError: (error) => console.log(error) })).toString();
+      // const formattedClaimReward = parseFloat(claimReward) / 1e18;
+      // const formattedClaimRewardRounded = formattedClaimReward.toFixed(2);
+      // setClaimReward(formattedClaimRewardRounded);
  
 
 
@@ -110,7 +110,7 @@ function StakeDetails() {
 
     if (isWeb3Enabled) updateUiValues();
   
-}, [account, getEarnedBalance, getRTBalance, getStakedBalance, getWithdrawBalance, getClaimReward,   isWeb3Enabled]);
+}, [account, getEarnedBalance, getRTBalance, getStakedBalance, getWithdrawBalance,    isWeb3Enabled]);
 
 
 
@@ -123,7 +123,7 @@ return (
       <div className='font-bold m-2 p-0'>RT Balance is: {rtBalance}</div>
       <div className='font-bold m-2'>Earned Balance is: {earnedBalance}</div>
       <div className='font-bold m-2'>Staked Balance is: {stakedBalance}</div>
-      <div className='font-bold m-2'>Claim Blance is: {claimReward}</div>
+      {/* <div className='font-bold m-2'>Claim Blance is: {claimReward}</div> */}
        {/* <div className='font-bold m-2'>withdraw Balance is:{withdrawBalance}</div> */}
      
       </div>

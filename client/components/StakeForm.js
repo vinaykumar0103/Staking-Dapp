@@ -107,36 +107,36 @@ async function handleWithdrawSuccess(amountToWithdrawFormatted) {
   //   }
   
  
-async function handleClaimRewardSubmit(data) {
-  const amountToClaim = data.data[0].inputResult;
-  claimOptions.params = {
-    amount: ethers.utils.parseEther(amountToClaim, 'ether'),
-    spender: stakingAddress
-  };
+// async function handleClaimRewardSubmit(data) {
+//   const amountToClaim = data.data[0].inputResult;
+//   claimOptions.params = {
+//     amount: ethers.utils.parseEther(amountToClaim, 'ether'),
+//     spender: stakingAddress
+//   };
 
-   const tx = await runContractFunction({
-    params: claimOptions,
-    onError: (error) => console.log(error),
-    onSuccess: () => {
-      handleClaimSuccess(claimOptions.params.amount);
+//    const tx = await runContractFunction({
+//     params: claimOptions,
+//     onError: (error) => console.log(error),
+//     onSuccess: () => {
+//       handleClaimSuccess(claimOptions.params.amount);
       
-      console.log('claim rewards');
-    }
-  });
-}
+//       console.log('claim rewards');
+//     }
+//   });
+// }
 
-async function handleClaimSuccess(amountToEarnedFormatted) {
-  stakeOptions.params = {
-    amount: amountToEarnedFormatted
-  };
+// async function handleClaimSuccess(amountToEarnedFormatted) {
+//   stakeOptions.params = {
+//     amount: amountToEarnedFormatted
+//   };
 
-    const tx = await runContractFunction({
-    params: stakeOptions,
-    onError: (error) => console.log(error)
-  });
+//     const tx = await runContractFunction({
+//     params: stakeOptions,
+//     onError: (error) => console.log(error)
+//   });
 
 
-}
+// }
    
 
     
@@ -171,14 +171,14 @@ async function handleClaimSuccess(amountToEarnedFormatted) {
           name: 'Amount to withdrew',
           type : 'number',
           value: "",
-          key: 'amountToWithdrew'
+          key: 'amountToWithdraw'
         }
        ]}
         title='Withdraw Now!'>
 
       </Form>
 
-      <br />
+      {/* <br />
 
       <Form
         onSubmit={handleClaimRewardSubmit}
@@ -191,7 +191,7 @@ async function handleClaimSuccess(amountToEarnedFormatted) {
         ]}
         title='claim Reward'>
       </Form>
-    
+     */}
 </div>
       
   );
