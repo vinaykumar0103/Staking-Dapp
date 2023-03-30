@@ -1,3 +1,5 @@
+const { STORE_KEY_PRIVATE_KEY } = require("@magic-sdk/provider");
+
 require("@nomicfoundation/hardhat-toolbox");
 require('dotenv').config()
 require("@nomiclabs/hardhat-etherscan");
@@ -17,9 +19,8 @@ module.exports = {
      },
      
      mumbai :{
-        //url:`https://polygon-mumbai.infura.io/v3/${process.env.INFURA_API}`,
-      url:`https://polygon-mumbai.infura.io/v3/6771d5f60d2b4d23a9899aec119166c1`,
-      accounts:["373ec261e93a4bd1d2844175ed233ecac75a2b0170bbd07f0f916d072ec25385"],
+        url:`https://polygon-mumbai.infura.io/v3/${process.env.INFURA_API}`,
+      accounts:[PRIVATE_KEY],
       chainId:80001,
 
     },
